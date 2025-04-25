@@ -2,98 +2,149 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diseño y Desarrollo Web</title>
     <style>
+        /* reset básico y tipografía */
         * {
-            margin: 0.2rem;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: #ffffff;
+            background: #fff;
             color: #202020;
-            line-height: 1.6;
-            padding: 20px;
-            margin: 0 auto;
         }
-        
+
+        /* contenedor principal en grid */
+        .container {
+            display: grid;
+            grid-template-areas:
+                "nav nav"
+                "header header"
+                "aside main"
+                "footer footer";
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: auto auto 1fr auto;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            grid-area: nav;
+            background: #ccc;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
         header {
-            background-color: #44ad5b;
-            color: #ffffff;
-            padding: 30px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            margin-bottom: 10px;
-        }
-        
-        section {
-            background-color: white;
-            margin: 2rem;
+            grid-area: header;
+            background: #eee;
             padding: 1rem;
-            border-radius: 8px;
-            border-style: solid;
-            border-color: #000000;
+            border-radius: 6px;
+            text-align: center;
         }
-        
+
+        aside {
+            grid-area: aside;
+            display: grid;
+            grid-template-rows: repeat(2, auto);
+            gap: 1rem;
+        }
+
+        main {
+            grid-area: main;
+        }
+
+        .box {
+            background: #f5f5f5;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
         h2 {
+            margin-bottom: 0.75rem;
             color: #4169e1;
             border-bottom: 2px solid #636363;
-            margin-bottom: 1rem;
+            padding-bottom: 0.25rem;
         }
-        
-        h3 {
-            color: #495057;
-        }
-        
+
         ul {
             padding-left: 1rem;
+        }
+
+        footer {
+            grid-area: footer;
+            background: #ccc;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 4px;
+            font-style: italic;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Diseño y Desarrollo Web</h1>
-        <p>Información general de la materia</p>
-    </header>
+    <div class="container">
+        <nav>Enlaces del menú</nav>
 
-    <section>
-        <h2>Bibliografía</h2>
+        <header>
+            <h1>Diseño y Desarrollo Web</h1>
+            <p>Información general de la materia</p>
+        </header>
 
-        <ul>
-            <li>NIEDERST ROBBINS, Jennifer. HTML5 Pocket Reference Quick, Comprehensive, Indispensable (Pocket Reference (O'Reilly)). 5ta. Ed. Págs. 1 a 4, 6 y 7. EE.UU.: O'Reilly Media, 2013. ISBN: 978-1449363352</li>
-            <li>SCOTT, Emmit. SPA Design and Architecture: Understanding Single Page Web Applications. 1a ed. Nueva York: Manning, 2015. ISBN 978-1617292439</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Fechas de Exámenes</h2>
-        <ul>
-            <li><b>Primer Parcial:</b> 21/04/2025</li>
-            <li><b>Segundo Parcial:</b> 09/06/2025</li>
-            <li><b>Examen Recuperatorio y Final Anticipado:</b> (fecha a confirmar)</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Actividades UVAs</h2>
-        <ul>
-            <li><b>UVA1</b>
+        <aside>
+            <div class="box">
+                <h2>Fechas de exámenes</h2>
                 <ul>
-                    <li><a href="https://pedro-vazquez-b.github.io/Intro/Vazquez_1219251%20_26032025_IntroaHTML.html">Ejercicio
-                            individual: HTML - Introducción</a></li>
-                    <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_HTMLEtiquetas">Ejercicio
-                            individual: HTML - Etiquetas</a></li>
+                    <li><b>Primer Parcial:</b> 21/04/2025</li>
+                    <li><b>Segundo Parcial:</b> 09/06/2025</li>
+                    <li><b>Recuperatorio / Final Anticipado:</b> (fecha a confirmar)</li>
                 </ul>
-            </li>
-        </ul>
-    </section>
+            </div>
+            <div class="box">
+                <h2>Bibliografía</h2>
+                <ul>
+                    <li>NIEDERST ROBBINS, Jennifer. <i>HTML5 Pocket Reference</i> (O'Reilly), 5ª Ed. Págs. 1–4, 6–7.
+                        2013.</li>
+                    <li>SCOTT, Emmit. <i>SPA Design and Architecture</i>. Manning, 2015.</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <div class="box">
+                <h2>Actividades UVAs</h2>
+                <ul>
+                    <li><b>UVA1:</b>
+                        <ul>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_IntroaHTML">HTML –
+                                    Introducción</a></li>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_HTMLEtiquetas">HTML
+                                    – Etiquetas</a></li>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_Integracion">HTML –
+                                    Integracion</a></li>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_02042025_Formatodetexto">Formato de
+                                    texto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>Curso: 518378 / Profesora: Patricia Litovicius</footer>
+    </div>
 </body>
 
 </html>

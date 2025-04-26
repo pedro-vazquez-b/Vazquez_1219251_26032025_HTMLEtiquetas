@@ -5,173 +5,82 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diseño y Desarrollo Web</title>
-    <style>
-        /* reset básico y tipografía */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: #fff;
-            color: #202020;
-        }
-
-        /* contenedor principal en grid */
-        .container {
-            display: grid;
-            grid-template-areas:
-                "nav nav"
-                "header header"
-                "aside main"
-                "footer footer";
-            grid-template-columns: 1fr 2fr;
-            grid-template-rows: auto auto 1fr auto;
-            gap: 1rem;
-            max-width: 1200px;
-            margin: 1rem auto;
-            padding: 0 1rem;
-        }
-
-        nav {
-            grid-area: nav;
-            background: #ccc;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        header {
-            grid-area: header;
-            background: #eee;
-            padding: 1rem;
-            border-radius: 6px;
-            text-align: center;
-        }
-
-        aside {
-            grid-area: aside;
-            display: grid;
-            grid-template-rows: repeat(2, auto);
-            gap: 1rem;
-        }
-
-        main {
-            grid-area: main;
-        }
-
-        .box {
-            background: #f5f5f5;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-        }
-
-        h1 {
-            margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            margin-bottom: 0.75rem;
-            color: #4169e1;
-            border-bottom: 2px solid #636363;
-            padding-bottom: 0.25rem;
-        }
-
-        ul {
-            padding-left: 1rem;
-        }
-
-        footer {
-            grid-area: footer;
-            background: #ccc;
-            padding: 0.5rem;
-            text-align: center;
-            border-radius: 4px;
-            font-style: italic;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 1rem;
-        }
-
-        nav ul li {
-            margin: 0;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/index.html">Home</a></li>
-                <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/avisos.html">Avisos</a></li>
-                <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/sobremi.html">Sobre mi</a></li>
-                <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/materias2025.html">Materias 2025</a></li>
-                <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+<body class="flex flex-col bg-orange-100 font-sans h-dvh overflow-hidden">
+    <!-- Navegación completa -->
+    <nav class="bg-blue-950 text-white w-full">
+        <ul class="flex justify-center space-x-4 p-4">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="avisos.html" class="hover:underline">Avisos</a></li>
+            <li><a href="sobremi.html" class="hover:underline">Sobre mi</a></li>
+            <li><a href="materias2025.html" class="hover:underline">Materias 2025</a></li>
+            <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+        </ul>
+    </nav>
 
-        <header>
-            <h1>Diseño y Desarrollo Web</h1>
-            <p>Información general de la materia</p>
-        </header>
+    <!-- Header completo -->
+    <header class="bg-blue-950 text-white w-full p-6 text-center">
+        <h1 class="text-3xl font-bold">Diseño y Desarrollo Web</h1>
+        <p class="mt-2">Información general de la materia</p>
+    </header>
 
-        <aside>
-            <div class="box">
-                <h2>Fechas de exámenes</h2>
-                <ul>
-                    <li><b>Primer Parcial:</b> 21/04/2025</li>
-                    <li><b>Segundo Parcial:</b> 09/06/2025</li>
-                    <li><b>Recuperatorio / Final Anticipado:</b> (fecha a confirmar)</li>
+    <!-- Contenedor principal ocupa todo el espacio entre header y footer -->
+    <main class="flex-grow">
+        <div class="container mx-auto px-4 py-6 grid grid-cols-2 grid-rows-2 gap-6 h-full">
+
+            <!-- Fechas de exámenes (col 1, row 1) -->
+            <div class="bg-gray-100 border border-gray-300 rounded p-4">
+                <h2 class="text-xl mb-3 text-blue-600 border-b-2 border-gray-500 pb-1">Fechas de exámenes</h2>
+                <ul class="list-disc list-inside">
+                    <li><strong>Primer Parcial:</strong> 25/04/2025</li>
+                    <li><strong>Segundo Parcial:</strong> 13/06/2025</li>
+                    <li><strong>Recuperatorio / Final Anticipado:</strong> (fecha a confirmar)</li>
                 </ul>
             </div>
-            <div class="box">
-                <h2>Bibliografía</h2>
-                <ul>
-                    <li>NIEDERST ROBBINS, Jennifer. <i>HTML5 Pocket Reference</i> (O'Reilly), 5ª Ed. Págs. 1–4, 6–7.
+
+            <!-- Actividades UVAs (col 2, spans 2 filas) -->
+            <div class="bg-gray-100 border border-gray-300 rounded p-4 row-span-2">
+                <h2 class="text-xl mb-4 text-blue-600 border-b-2 border-gray-500 pb-1">Actividades UVAs</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>UVA1:</strong>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_IntroaHTML"
+                                    class="text-blue-700 hover:underline">HTML – Introducción</a></li>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_HTMLEtiquetas"
+                                    class="text-blue-700 hover:underline">HTML – Etiquetas</a></li>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_Integracion"
+                                    class="text-blue-700 hover:underline">HTML – Integración</a></li>
+                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_02042025_Formatodetexto"
+                                    class="text-blue-700 hover:underline">Formato de texto</a></li>
+                        </ul>
+                    </li>
+                    <li><strong>UVA2:</strong>
+                        <ul class="list-disc list-inside ml-4">
+                            <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/index.html"
+                                    class="text-blue-700 hover:underline">TP1</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bibliografía (col 1, row 2) -->
+            <div class="bg-gray-100 border border-gray-300 rounded p-4">
+                <h2 class="text-xl mb-3 text-blue-600 border-b-2 border-gray-500 pb-1">Bibliografía</h2>
+                <ul class="list-disc list-inside">
+                    <li>NIEDERST ROBBINS, Jennifer. <em>HTML5 Pocket Reference</em> (O'Reilly), 5ª Ed. Págs. 1–4, 6–7.
                         2013.</li>
-                    <li>SCOTT, Emmit. <i>SPA Design and Architecture</i>. Manning, 2015.</li>
+                    <li>SCOTT, Emmit. <em>SPA Design and Architecture</em>. Manning, 2015.</li>
                 </ul>
             </div>
-        </aside>
+        </div>
+    </main>
 
-        <main>
-            <div class="box">
-                <h2>Actividades UVAs</h2>
-                <ul>
-                    <li><b>UVA1:</b>
-                        <ul>
-                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_IntroaHTML">HTML –
-                                    Introducción</a></li>
-                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_HTMLEtiquetas">HTML
-                                    – Etiquetas</a></li>
-                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_26032025_Integracion">HTML –
-                                    Integracion</a></li>
-                            <li><a href="https://pedro-vazquez-b.github.io/Vazquez_1219251_02042025_Formatodetexto">Formato
-                                    de
-                                    texto</a></li>
-                        </ul>
-                    </li>
-                    <li><b>UVA2:</b>
-                        <ul>
-                            <li><a href="https://pedro-vazquez-b.github.io/UVA2TP1-Vazquez/index.html">TP1</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </main>
-
-        <footer>Curso: 518378 / Profesora: Patricia Litovicius</footer>
-    </div>
+    <!-- Footer completo -->
+    <footer class="bg-blue-950 text-white w-full p-4 text-center italic">
+        Curso: 518378 / Profesora: Patricia Litovicius
+    </footer>
 </body>
 
 </html>
